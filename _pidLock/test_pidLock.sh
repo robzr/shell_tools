@@ -10,7 +10,7 @@
 #
 #
 
-. _pidLock.sh
+. _pidLock.inc
 
 #
 # example usage:
