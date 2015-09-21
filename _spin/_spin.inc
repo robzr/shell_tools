@@ -79,4 +79,3 @@ function _spin {
     sleep .15
   fi
 }
-
