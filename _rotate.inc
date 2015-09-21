@@ -3,7 +3,7 @@
 # Usage: _rotate file_or_directory [#_of_rotations_to_keep]
 #
 # Returns: -1 for error, otherwise, # of rotations
-#
+
 _rotate () {
   maxRots=9999
   target=$1
