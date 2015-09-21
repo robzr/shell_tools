@@ -1,0 +1,13 @@
+# Add the following to the end of your ~/.bashrc
+
+if [ -d /xb/bin/bashrc.d ] ; then
+  BASHRC_D=/xb/bin/bashrc.d
+elif [ -d ~/bin/bashrc.d ] ; then
+  BASHRC_D=~/bin/bashrc.d
+fi
+if [ -n "BASHRC_D" ] ; then
+  [ -r $BASHRC_D/prompt.sh ]   && . $BASHRC_D/prompt.sh
+  [ -x $BASHRC_D/check.pl ]    && $BASHRC_D/check.pl
+  `set | egrep ^bashrc | cut -f1 -d= | xargs echo unset`
+fi
+
