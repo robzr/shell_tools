@@ -51,11 +51,11 @@ if [ "$0" != "-bash" -a "$0" != "/bin/bash" -a "$0" != "bash" ] ; then
    echo
  done
  echo
- echo To run, include this in your .bashrc with optional arguments:
- echo . /path/to/colors.sh [fg_color [bg_color]]
+ echo To run, include this in your .bashrc or shell script with optional arguments:
+ echo . $0 [fg_color [bg_color]]
  echo
  echo Color names must begin with a cap.  Example:
- echo . colors.sh Red Blue \; echo Test
+ echo . $0 Red Blue \; echo Test
  echo
 else
   if [ "$1" != "" ] ; then
