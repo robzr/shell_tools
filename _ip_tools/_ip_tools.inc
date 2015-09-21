@@ -11,9 +11,11 @@
 # Returns: return code - true if the IP is in the network, false otherwise
 #
 _ipt_isInNet () {
-  local nm=`_ipt_getNM $2`
-  local ip_net=`_ipt_binstringApplyNM \`_ipt_IPToBinstring $1\` $nm`
-  local net_net=`_ipt_getNM $2`
+  local net_ip=`_ipt_IPToBinstring $1`
+  local net_nm=`_ipt_getNM $1`
+  local net_net=`_ipt_binstringApplyNM "$net_ip" "$net_nm"`
+  local ip_ip=`_ipt_IPToBinstring $2`
+  local ip_net=`_ipt_binstringApplyNM "$ip_ip" "$net_nm"`
   [ "$ip_net" == "$net_net" ]
 }
 
@@ -88,7 +90,7 @@ _ipt_IPToBinstring () {
 # Returns: string - IP representation of binstring
 _ipt_binstringToIP () { 
   local x
-  _ipt_type "$1" || { echo "invalid" ; return ;} 
+  _ipt_type "$1" >/dev/null || { echo "invalid" ; return ;} 
   for x in 1 9 17 ; do echo $1 | cut -c$((x))-$((x+7)) | xargs echo ibase=2\; | bc | xargs printf "%s." ; done
   echo $1 | cut -c25-32 | xargs echo ibase=2\; | bc | xargs printf "%s\n"
 }
