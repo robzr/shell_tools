@@ -9,4 +9,6 @@ Many of these routines are suitable for embedding in shell scripts, using on Ope
 - **_rotate.inc** Lightweight file rotation function
 - **_searchPath.inc** Searches a path for an executible
 - **_spin** text animation for shell script status prompts
-- **bashrc.d** goodies for a modular bashrc setup
+- **_updateLine.inc** update/append line to config files
+- **bashrc.d** goodies for a modular bashrc setup (half baked)
+
