@@ -8,7 +8,7 @@
 # echo cutCMD: $cutCMD
 
 function _searchPath {
-  # Usage: programCmd=`_searchPath program path1[:path2[:path3...]]`
+  # Usage: programCmd=`_searchPath program [path1[:path2...]]`
   local cmd="$1" pathToSearch="$2" IFS=: foundCmd path
   [ -z "$pathToSearch" ] && pathToSearch="$PATH"
   for path in $pathToSearch ; do 
