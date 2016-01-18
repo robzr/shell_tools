@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# For OpenWRT - recursively gets children PIDs for $1
+
+getKids () { 
+ local kid
+ for kid in `egrep "^PPid:	*$1\$" /proc/[0-9]*/status 2>/dev/null | cut -f3 -d/` ; do
+  [ $1 = $$ ] || getKids $kid
+  echo $kid
+ done
+}
+
+for kid in getKids $1 ; do 
+  echo Kid: $kid
+done
